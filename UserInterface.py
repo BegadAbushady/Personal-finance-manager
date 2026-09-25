@@ -13,24 +13,30 @@ print("2. Register")
 print("3. Exit")
 
 while True:
- choice = input()
- match choice:
-    case "1":
-        print("Login selected")
-    case "2":
-        print("Register selected")
-		
-        print("Enter username:")
-        username = input()
-        print("Enter password:")
-        password = input()
-        x = Users(username, password)
-        print(x.getattribute())
-        
-    case "3":
-        print("Exit selected")
-    case _ :
-        print("Invalid choice")
+    choice = input()
+    match choice:
+        case "1":
+            print("Login selected")
+            print("Enter username:")
+            username = input()
+            print("Enter password:")
+            password = input()
+            user = Users(username, password)
+            print(f"Welcome, {username}!")
+            print(user.balance)
+            
+        case "2":
+            print("Register selected")
+            print("Enter username:")
+            username = input()
+            print("Enter password:")
+            password = input()
+            x = Users(username, password)
+        case "3":
+            print("Exit selected")
+            break
+        case _:
+            print("Invalid choice")
 
 
 print("1. View balance")
@@ -47,23 +53,23 @@ choice = input()
 
 
 match choice:
-	case "1":
-		print("View balance selected")
-	case "2":
-		print("Add income selected")
-	case "3":
-		print("Add expense selected")
-	case "4":
-		print("View transactions selected")
-	case "5":
-		print("View spending by category selected")
-	case "6":
-		print("Set budget selected")
-	case "7":
-		print("View budget status selected")
-	case "8":
-		print("Financial summary selected")
-	case "9":
-		print("Goodbye!")
-	case _:
-		print("Invalid choice")
+    case "1":
+        print("View balance selected")
+    case "2":
+        print("Add income selected")
+    case "3":
+        print("Add expense selected")
+    case "4":
+        print("View transactions selected")
+    case "5":
+        print("View spending by category selected")
+    case "6":
+        print("Set budget selected")
+    case "7":
+        print("View budget status selected")
+    case "8":
+        print("Financial summary selected")
+    case "9":
+        print("Goodbye!")
+    case _:
+        print("Invalid choice")
