@@ -1,17 +1,22 @@
 import Models as classes
-from Models import Users
-def checkingnumbers():
-    pass
+from Models import Users, self
+my_bank = self()
+
+def checkingnumbers(number):
+    while True:
+        try:
+            number = float(number)
+        except ValueError:
+            print("That's not a number... Please try again by entering an adequate number.")
+            number = input()
+            continue
+        if number < 0:
+            print("It cannot be negative... Please try again by entering an adequate number.")
+            number = input()
+            continue
+        return number
+        
 choice = 0
-
-print("==============================")
-print("   PERSONAL FINANCE MANAGER   ")
-print("==============================")
-
-print("Please select an option:")
-print("1. Login")
-print("2. Register")
-print("3. Exit")
 
 
 
@@ -19,17 +24,37 @@ print("3. Exit")
 
 while True:
 
-    choice = input()
+    print("==============================")
+    print("   PERSONAL FINANCE MANAGER   ")
+    print("==============================\n\n")
+
+    print("Please select an option:")
+    print("1. Login")
+    print("2. Register")
+    print("3. Exit\n")
+
+    choice = input("Please enter your choice:  ")
+
     
     match choice:
     
         case "1":
-            print("Login selected")
-            print("Enter username:")
-            username = input()
-            print("Enter password:")
-            password = input()
-            
+            while True:
+                print("Login selected\n")
+                username = input("Enter username:")
+                password = input("Enter password:")
+                found = my_bank.login(username, password)
+                if found == True:
+                    break
+                else:
+                    while input("Do you wanna try again? (y/n)") not in ['n','y']:
+                        print("wrong input")
+                        continue
+                    if input() == 'n':
+                        break
+                    else:
+                        continue
+
 
             
         case "2":
@@ -40,22 +65,11 @@ while True:
             password = input()
             print("Do you wanna put in initial balance? (y/n)")
             response = input()
+            initial_balance = 0
             if response == "y":
-                while True:
-                    initial_balance = input("Enter the initial balance")
-                    try:
-                        initial_balance = float(initial_balance)
-                    except ValueError:
-                        print("That's not a number")
-                        continue
-                    if initial_balance < 0:
-                        print("Initial balance cannot be negative")
-                        continue
-                    
-        
-        
-        
-        
+                initial_blanace = print("Enter initial balance:")
+                initial_balance = checkingnumbers(initial_balance)
+            my_bank.createaccount(username, password, initial_balance)
         case "3":
             print("Exit selected")
             break
