@@ -1,6 +1,7 @@
 import Models as classes
 from Models import Users
-
+def checkingnumbers():
+    pass
 choice = 0
 
 print("==============================")
@@ -12,18 +13,24 @@ print("1. Login")
 print("2. Register")
 print("3. Exit")
 
+
+
+
+
 while True:
+
     choice = input()
+    
     match choice:
+    
         case "1":
             print("Login selected")
             print("Enter username:")
             username = input()
             print("Enter password:")
             password = input()
-            user = Users(username, password)
-            print(f"Welcome, {username}!")
-            print(user.balance)
+            
+
             
         case "2":
             print("Register selected")
@@ -31,12 +38,34 @@ while True:
             username = input()
             print("Enter password:")
             password = input()
-            x = Users(username, password)
+            print("Do you wanna put in initial balance? (y/n)")
+            response = input()
+            if response == "y":
+                while True:
+                    initial_balance = input("Enter the initial balance")
+                    try:
+                        initial_balance = float(initial_balance)
+                    except ValueError:
+                        print("That's not a number")
+                        continue
+                    if initial_balance < 0:
+                        print("Initial balance cannot be negative")
+                        continue
+                    
+        
+        
+        
+        
         case "3":
             print("Exit selected")
             break
         case _:
             print("Invalid choice")
+
+
+
+
+
 
 
 print("1. View balance")
