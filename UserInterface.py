@@ -2,6 +2,10 @@ import Models as classes
 from Models import Users, self
 my_bank = self()
 
+
+
+#checking function to check if the input is a number and if it's more than 0
+#used for checking many inputs in the project
 def checkingnumbers(number):
     while True:
         try:
@@ -92,10 +96,10 @@ print("7. View budget status")
 print("8. Financial summery")
 print("9. Exit")
 
-choice = input()
+choice2 = input()
 
 
-match choice:
+match choice2:
     case "1":
         print("View balance selected")
     case "2":
