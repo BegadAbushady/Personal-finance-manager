@@ -25,7 +25,7 @@ choice = 0
 
 
 
-
+#the main loop
 while True:
 
     print("==============================")
